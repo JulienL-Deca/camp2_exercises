@@ -5,7 +5,7 @@ const driverData = require("./.driver_data");
 // driverLicense is a string with the kind of license (ex: AM, B, D...)
 const driverLicense = driverData.driverLicense;
 // licenceIssued is an integer with the year it was issued (ex: 2001)
-const licenseIssued = driverData.licenseIssued;
+const licenseIssued = driverData.licenceIssued;
 // numberOfAccident is an integer with the number of accidents.
 const numberOfAccident = driverData.numberOfAccident;
 // bonus is a float that represent the driver's bonus
@@ -17,3 +17,8 @@ const bonus = driverData.bonus;
 let canRentACar;
 
 // Your code here:
+if (driverLicense >= "B" && (new Date().getFullYear() - licenseIssued >=2 ) &&  (numberOfAccident === 0 || bonus >= 0.7 )) {
+  canRentACar = true;
+} else {
+  canRentACar = false;
+}

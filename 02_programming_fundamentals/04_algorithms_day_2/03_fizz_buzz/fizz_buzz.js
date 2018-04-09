@@ -9,7 +9,19 @@
 */
 
 function fizzBuzz(list) {
-
+  let modifyArray = [];
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] % 3 === 0 && list[i] % 5 === 0 ) {
+      modifyArray.push("FizzBuzz");
+    } else if (list[i] % 3 === 0) {
+      modifyArray.push("Fizz");
+    } else if (list[i] % 5 === 0) {
+      modifyArray.push("Buzz");
+    } else {
+      modifyArray.push(list[i]);
+    }
+  }
+  return modifyArray;
 }
 
 

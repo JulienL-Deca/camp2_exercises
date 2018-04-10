@@ -32,11 +32,47 @@
 // 10101010101010101010
 // 1111111111111111111111
 // ```
-
+//
+function print1Line(number2Print){
+  let lineOfNb = "";
+  for (let i = 0; i < number2Print; i++) {
+    lineOfNb += number2Print;
+  }
+  lineOfNb += "\n";
+  return lineOfNb;
+}
 function pattern(size) {
   // Your code here
+  let pattern2Print = "";
+  if ( size < 1 ) {
+    pattern2Print = "";
+  } else {
+    for ( let i = 1; i <= size; i++ ) {
+      pattern2Print += print1Line(i);
+    }
+  }
+  return pattern2Print.trim();
 }
 
 // Do not remove last lines, it is for tests
 // eslint-disable-next-line
 module.exports = pattern;
+
+/* avec tableau mais ne passe pas les tests ,-(
+function pattern(size) {
+  // Your code here
+  if ( size < 1 ) {
+    return "";
+  } else {
+    const sizeDigit = size.toString();
+    for ( let i = 1; i <= size; i++ ) {
+      let stringPattern = [];
+      for ( let j = 1; j <= i; j++ ) {
+        stringPattern.push(i);
+      }
+      console.log(stringPattern.join(""));
+    }
+    //return sizeDigit;
+  }
+}
+*/

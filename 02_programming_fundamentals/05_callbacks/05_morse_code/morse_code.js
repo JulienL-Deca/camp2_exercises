@@ -43,6 +43,10 @@ const MORSE_CODE = {
   "---..": "8",
   "----.": "9"
 };
+function decode1MorseBloc(morseBloc) {
+  // Your code here
+  return MORSE_CODE[morseBloc];
+}
 
 function decodeMorse(morse) {
   // Your code here

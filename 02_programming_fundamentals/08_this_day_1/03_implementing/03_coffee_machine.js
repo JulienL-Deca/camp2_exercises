@@ -27,20 +27,8 @@ const machine = {
 
   fillWithLitersOfCoffee: function(nbLitersToFill ) {
     //modifie la quantité de café disponible
-    this.litersOfCoffee += nbLitersToFill  ;
+    this.litersOfCoffee += nbLitersToFill;
   }
 };
 
-// Coffee Machine usage. Insert your code above this comment
-
-/*
-machine.fillWithLitersOfCoffee(10);
-console.log(machine.expresso()) // => true ==> 0.08
-console.log(machine.litersOfCoffee) // => 9.92
-console.log(machine.longCoffee()) // => true ==> 0.15
-console.log(machine.litersOfCoffee) // => 9.77
-// some more people ordering coffee here
-console.log(machine.litersOfCoffee) // => 0.02
-console.log(machine.expresso()) // => false
-*/
 module.exports = machine;

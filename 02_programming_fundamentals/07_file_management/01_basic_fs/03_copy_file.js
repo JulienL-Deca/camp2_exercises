@@ -3,27 +3,29 @@
 // it already exists.
 //
 // The function returns a boolean indicating if it successfully removed the file.
-const fs = require('fs');
+const fs = require("fs");
 
 function copyPaste(sourceFilename, targetFilename) {
-  const { COPYFILE_EXCL } = fs.constants;
-
-  if (fs.statSync(sourceFilename).isDirectory()) { //est un dossier return error
-    console.warn("Source file is a directory");
-  } else { //sinon je copie
-    fs.copyFile(sourceFilename, targetFilename, COPYFILE_EXCL,(error) => {
-    if (error){
-      console.warn(error);
+  if (fs.existsSync(sourceFilename)) {
+    if (!fs.statSync(sourceFilename).isDirectory()) { //est un dossier return error
+      const { COPYFILE_EXCL } = fs.constants;
+      fs.copyFile(sourceFilename, targetFilename, COPYFILE_EXCL,(error) => {
+        if (error){
+          console.warn(error);
+        }
+      });
     }
-  });
   }
 }
 
 module.exports = copyPaste;
+/*
+refaire avec les fonctions fs.readFile et fs.writeFile
+*/
 
 /*
 var fs = require("fs");
-var path = "C:\\Python27\\ArcGIS10.2\\python.exe";
+var path = "/bla/bli/blo/blu";
 
 fs.stat(path, function(error, stats) {
   console.log(stats);

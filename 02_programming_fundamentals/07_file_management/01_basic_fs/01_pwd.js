@@ -3,9 +3,9 @@
 // Example
 //
 // pwd() # => "/Users/john/Workspace/my_folder"
+const path = require("path");
 
 function pwd (){
-  return process.cwd();
+  return  path.resolve() ;
 }
-console.log(pwd());
 module.exports = pwd;

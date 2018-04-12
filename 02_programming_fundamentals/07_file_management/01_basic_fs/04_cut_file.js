@@ -9,11 +9,14 @@ const copyPaste = require("./03_copy_file");
 
 
 function cutPaste(sourceFilename, targetFilename) {
-  console.log("je copie");
-  copyPaste(sourceFilename, targetFilename);
-  console.log("j'ai copié | je delete");
-  deleteFile(targetFilename);
-  console.log("j'ai delete");
+  if (fs.existsSync(targetFilename)) {
+    console.warn("Target name already exist");
+  } else if (fs.existsSync(sourceFilename)) {
+    copyPaste(sourceFilename, targetFilename);
+    deleteFile(sourceFilename);
+  } else {
+    console.warn("Source name does not exist");
+  }
 }
 
 module.exports = cutPaste;

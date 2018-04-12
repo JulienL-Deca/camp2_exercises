@@ -12,6 +12,12 @@ const person = {
   },
   introduceMyself: function() {
     // Your code here
+    return `Hello! I'm ${this.fullname()} and I'm ${this.age}`;
+  },
+  growthAge: function(age) {
+    // Your code here
+    this.age = this.age + 1;
+    return this;
   }
 };
 

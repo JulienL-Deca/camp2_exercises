@@ -45,11 +45,11 @@ function dateFormat(){
   let month = dateOfToday.getMonth()+1;
   if (month < 10) {
     month = "0" + month;
-  }
+  } // month = month.toString().padStart(2,"0");
   let day = dateOfToday.getDate();
   if (day < 10) {
     day = "0" + day;
-  }
+  } // day = day.toString().padStart(2,"0");
   const dateToReturn = dateOfToday.getFullYear() + "-" + month + "-" + day;
   return dateToReturn;
 }

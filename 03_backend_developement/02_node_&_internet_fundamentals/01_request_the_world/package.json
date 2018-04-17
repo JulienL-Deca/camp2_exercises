@@ -1,7 +1,7 @@
 {
   "name": "01_request_the_world",
   "version": "1.0.0",
-  "description": "",
+  "description": "camp2 exercices : 1st ply with request package",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "request": "^2.85.0"
   }
 }

@@ -40,9 +40,21 @@ Validating a timestamp
 Using the object Date, let's write a function called validateTimestamp(callback) where the callback is a function with the parameter result. This function will perform a query on https://postman-echo.com/time/valid with a parameter timestamp wich is equal to the current date with the format YYYY-mm-dd and execute the callback by passing only the result of the query.
 Be careful, the Date may have a risky behavior, you should test that it works before using it!
 */
-function validateTimestamp(callback){
+function dateFormat(){
   const dateOfToday = new Date();
-  let dateToTest = dateOfToday.getFullYear() + "-" + (dateOfToday.getMonth()+1) + "-" +dateOfToday.getDate();
+  let month = dateOfToday.getMonth()+1;
+  if (month < 10) {
+    month = "0" + month;
+  }
+  let day = dateOfToday.getDate();
+  if (day < 10) {
+    day = "0" + day;
+  }
+  const dateToReturn = dateOfToday.getFullYear() + "-" + month + "-" + day;
+  return dateToReturn;
+}
+function validateTimestamp(callback){
+  const dateToTest = dateFormat();
   webRequestGet(
     {
       url: `https://postman-echo.com/time/valid?timestamp=${dateToTest}`,

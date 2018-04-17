@@ -57,5 +57,5 @@ function validateTimestamp(callback){
 module.exports = {
   simpleGet: simpleGet,
   simpleGetWithParams: simpleGetWithParams,
-  validateTimestamp
+  validateTimestamp: validateTimestamp
 }

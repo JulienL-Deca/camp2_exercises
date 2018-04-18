@@ -142,7 +142,7 @@ updatePost(postId, newTitle, newBody, callback) that updates the body and the ti
 function updatePostTitle(postId, newTitle, callback) {
   webRequest.patch(
     `http://jsonplaceholder.typicode.com/posts/${postId}`,
-    {form: {postId: postId, title: newTitle}},
+    {form: {title: newTitle}},
     function(error, response, body) {
       callback(body);
     }

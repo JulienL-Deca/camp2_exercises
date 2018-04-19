@@ -1,10 +1,9 @@
-require('dotenv').load();
 const webRequest = require("request");
 
 function weatherByCity(cityname){
   webRequest(
     {
-      url: `http://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=${process.env.OWMAPIKEY}`,
+      url: `http://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=6d94308247d6e031436bad2d92fa3a3c`,
       method: "GET"
     },
     function (error, response, result) {

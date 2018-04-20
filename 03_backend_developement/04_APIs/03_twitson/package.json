@@ -10,5 +10,10 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "oauth": "^0.9.15",
+    "request": "^2.85.0"
   }
 }

@@ -1,0 +1,82 @@
+','Men# démarrer service
+$ brew services start postgres
+# création table
+$ createdb Marathon
+
+$ psql -d Marathon // ou CREATE DATABASE database_name
+
+Marathon=# CREATE TABLE race (
+id SERIAL PRIMARY KEY,
+racename varchar(30),
+racedate date,
+runnername varchar(30),
+runnerbib smallint,
+runnerposition smallint,
+runnertime time
+);
+
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women', 'john doe', '10', '1', '1:00:00');
+
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Evelyn','12','12','2:11');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Avery','13','13','2:12');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Chloe','14','14','2:13');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Ella','15','15','2:14');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Grace','16','16','2:15');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Victoria','17','17','2:16');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Aubrey','18','18','2:17');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Scarlett','19','19','2:18');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Zoey','20','20','2:19');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Addison','21','21','2:20');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Lily','102','102','2:25');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Lillian','103','103','2:26');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Natalie','104','104','2:27');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Hannah','105','105','2:28');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Aria','106','106','2:29');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Layla','107','107','2:30');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Brooklyn','108','108','2:31');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Alexa','109','109','2:32');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - Women','Zoe','110','110','2:33');
+
+////////////////////
+
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Evelyn','12','12','2:11');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Avery','13','13','2:12');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Chloe','14','14','2:13');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Ella','15','15','2:14');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Grace','16','16','2:15');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Victoria','17','17','2:16');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Aubrey','18','18','2:17');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Scarlett','19','19','2:18');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Zoey','20','20','2:19');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Addison','21','21','2:20');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Lily','102','102','2:25');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Lillian','103','103','2:26');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Natalie','104','104','2:27');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Hannah','105','105','2:28');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Aria','106','106','2:29');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Layla','107','107','2:30');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Brooklyn','108','108','2:31');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Alexa','109','109','2:32');
+INSERT INTO race (racename, runnername, runnerbib, runnerposition, runnertime ) VALUES ('New York City Marathon - men','Zoe','110','110','2:33');
+
+
+
+3. Select some data
+Find all runners for the "New York City Marathon - Women" edition 2017
+  select runnername, runnerbib, runnerposition, runnertime from race where racename ='New York City Marathon - Women';
+
+Find the name of the top 3 runners of the "New York City Marathon - Men" edition 2017
+  select runnername, runnerbib, runnerposition, runnertime from race where racename ='New York City Marathon - men' ORDER BY runnerposition DESC LIMIT 3;
+
+Find runners who ran the race in less than 2:30:00 and didn't start in the 100 first runners
+  select runnername, runnerbib, runnerposition, runnertime from race where runnertime <'2:30' AND runnerbib > 100;
+
+Find runners who ran the course in:
+less than 2:15:00 and didn't start in the 100 first runners or;
+less than 2:30:00 if they started in the 100 firsts. We would like to have the data sorted first by runners who started in the first 100, followed by the others. We would also like to have them sorted by overlap time.
+
+  select runnername, runnerbib, runnerposition, runnertime from race where ((runnertime <'2:15' AND runnerbib > 100) OR (runnertime <'2:30' AND runnerbib < 100)) ORDER BY runnerposition ASC;
+
+
+BONUS: Find runners (bib, name, and position) who made a better time than "Koen Naert". We would like to have the fastest first
+  select runnerbib, runnername, runnerposition from race where runnertime  < (select runnertime from race where runnername = 'Koen Naert') ORDER BY runnertime ASC;

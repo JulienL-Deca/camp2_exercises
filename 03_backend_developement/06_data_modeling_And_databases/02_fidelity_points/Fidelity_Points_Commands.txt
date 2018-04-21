@@ -1,0 +1,33 @@
+#création de la db
+CREATE DATABASE my_shop;
+
+#création des tables
+CREATE TABLE purchases (
+id UUID PRIMARY KEY,
+client_name varchar(30),
+euros_spent integer,
+fidelity_points_earned integer,
+purchase_date TIMESTAMP WITH TIME ZONE,
+number_of_items smallint
+);
+
+#utilisation de "TablePlus" pour importer le fichier csv
+
+"id","client_name","euros_spent","fidelity_points_earned","purchase_date","number_of_items"
+
+Find the three oldest client's name
+  SELECT purchase_date FROM purchases ORDER BY purchase_date LIMIT 1;
+  > 2017-01-01 08:45:46.451+01
+
+Find all clients that have not made a purchase in the last two months
+  SELECT client_name, purchase_date FROM purchases WHERE purchase_date > now() - interval '2 month' ORDER BY purchase_date DESC;
+
+Find all clients that have not made a purchase in the last month but are big customer (have purchased more than 3 items in one purchase previously)
+  SELECT client_name, purchase_date, number_of_items FROM purchases WHERE purchase_date > now() - interval '1 month' OR number_of_items > 3 ORDER BY purchase_date DESC;
+
+Find the best client (the one who spent the most money in one purchase)
+  SELECT client_name, euros_spent FROM purchases ORDER BY euros_spent DESC LIMIT 1;
+
+
+BONUS, find how much money our store made in the summer
+  SELECT SUM (euros_spent) FROM purchases WHERE purchase_date between '2017-07-01' AND '2017-08-31';

@@ -1,0 +1,78 @@
+1 créer notre base de donées | createdb human_resource
+2 se conencter à notre db | psql -d human_resource
+
+3 créer toutes les tables /!\ aux foreign keys dépendante des autres tables...
+
+CREATE TABLE region (
+id SERIAL PRIMARY KEY,
+name varchar(30)
+);
+
+CREATE TABLE country (
+id SERIAL PRIMARY KEY,
+code varchar(2),
+name varchar(30),
+region_id smallint REFERENCES region(id)
+);
+
+CREATE TABLE location (
+id SERIAL PRIMARY KEY,
+street_address varchar(40),
+postal_code varchar(10),
+city varchar(30),
+state_province varchar(30),
+country_id smallint REFERENCES country(id)
+);
+
+CREATE TABLE job (
+id SERIAL PRIMARY KEY,
+code varchar(12),
+title varchar(35),
+min_salary float,
+max_salary float
+);
+
+CREATE TABLE job_grade (
+id SERIAL PRIMARY KEY,
+level varchar(1),
+lowest_salary smallint,
+highest_salary int
+);
+
+CREATE TABLE employee (
+  id SERIAL PRIMARY KEY,
+  first_name varchar(20),
+  last_name varchar(30),
+  email varchar(10),
+  phone_number varchar(20),
+  hire_date date,
+  job_id smallint REFERENCES job(id),
+  salary float,
+  commission_pct float,
+  manager_id smallint REFERENCES employee(id),
+  department_id smallint
+);
+
+CREATE TABLE department (
+  id SERIAL PRIMARY KEY,
+  name varchar(30),
+  manager_id smallint REFERENCES employee(id),
+  location_id smallint REFERENCES location(id)
+);
+
+CREATE TABLE job_history (
+id SERIAL PRIMARY KEY,
+employee_id smallint REFERENCES employee(id),
+start_date date,
+end_date date,
+job_id smallint REFERENCES employee(id),
+department_id smallint REFERENCES department(id)
+);
+
+4 ajouter les données via import csv en respectant ordre de création des tables
+
+5 modifier la table employee pour ajouter la foreign keys
+
+ALTER TABLE employee
+ADD FOREIGN KEY (department_id) REFERENCES department(id)
+;

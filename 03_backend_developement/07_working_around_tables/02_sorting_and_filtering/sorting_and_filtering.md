@@ -1,53 +1,72 @@
 # Sorting And Filtering
 
 1. Write a query in SQL to display the full name (first and last name), and salary for those employees who earn below 6000.
+  SELECT first_name, last_name, salary FROM employee WHERE salary < 6000;
 
 2. Write a query in SQL to display the first and last_name, department number and salary for those employees who earn more than 8000.
+  SELECT first_name, last_name, department_id, salary FROM employee WHERE salary > 6000;
 
 3. Write a query in SQL to display the first and last name, and department number for all employees whose last name is "McEwen".
+  SELECT first_name, last_name, department_id FROM employee WHERE last_name = 'McEwen';
 
 4. Write a query in SQL to display all the information for all employees without any department number.
+  SELECT * FROM employee WHERE department_id IS NULL;
 
 5. Write a query in SQL to display all the information about the department Marketing.
+  SELECT * FROM employee INNER JOIN department ON (employee.department_id = department.id) WHERE department.name = 'Marketing';
 
 6. Write a query in SQL to display the full name (first and last), hire date, salary, and department number for those
 employees whose first name does not containing the letter M and make the result set in ascending order by department
 number.
+  SELECT first_name, last_name, hire_date, salary, department_id FROM employee WHERE first_name NOT LIKE '%M%' ORDER BY department_id ASC;
 
 7. Write a query in SQL to display all the information of employees whose salary is in the range of 8000 and 12000 and
 commission is not null or department number is except the number 4, 12 and 7 and they have been hired before June
 5th, 1987.
+  SELECT * FROM employee WHERE (salary BETWEEN 8000 AND 12000) AND ( (commission_pct != 0) OR department_id IN (4,12,7));
 
 8. Write a query in SQL to display the full name (first and last name), and salary for all employees who does not earn
 any commission.
+  SELECT last_name, first_name FROM employee WHERE commission_pct = 0;
 
 9. Write a query in SQL to display the full name (first and last), the phone number and email separated by hyphen, and
 salary, for those employees whose salary is within the range of 9000 and 17000. The column headings assign with
 Full_Name, Contact_Details and Remuneration respectively.
+  SELECT CONCAT(last_name,' ', first_name) AS Full_Name, CONCAT(phone_number,' , ', email) AS Contact_Details, salary AS Remuneration FROM employee WHERE salary BETWEEN 9000 AND 17000 ORDER BY salary ASC;
 
 10. Write a query in SQL to display the first and last name, and salary for those employees whose first name is ending
 with the letter m.
+  SELECT CONCAT(last_name,' ', first_name) AS Full_Name, salary FROM employee WHERE first_name like '%m';
 
 11. Write a query in SQL to display the full name (first and last) name, and salary, for all employees whose salary is
 out of the range 7000 and 15000 and make the result set in ascending order by the full name.
+  SELECT CONCAT(last_name,' ', first_name) AS Full_Name, salary AS Remuneration FROM employee WHERE salary NOT BETWEEN 7000 AND 15000 ORDER BY Full_Name ASC;
 
 12. Write a query in SQL to display the full name (first and last), job id and date of hire for those employees who was
 hired during November 5th, 2007 and July 5th, 2009.
+  SELECT CONCAT(last_name,' ', first_name) AS Full_Name, hire_date FROM employee WHERE hire_date BETWEEN '2007-11-05' AND '2009-07-05' ;
 
 13. Write a query in SQL to display the the full name (first and last name), and department number for those employees
 who works either in department 7 or 9.
+  SELECT CONCAT(last_name,' ', first_name) AS Full_Name, manager_id, department_id FROM employee WHERE department_id IN (7,9);
 
 14. Write a query in SQL to display the full name (first and last name), salary, and manager number for those employees
 who is working under a manager.
+  SELECT CONCAT(last_name,' ', first_name) AS Full_Name, salary, manager_id FROM employee WHERE manager_id IS NOT NULL;
 
 15. Write a query in SQL to display all the information from Employees table for those employees who was hired before
 June 21st, 2002.
+  SELECT * FROM employee WHERE hire_date < '2002-06-21';
 
 16. Write a query in SQL to display the first and last name, email, salary and manager ID, for those employees whose
 managers are hold the ID 21, 4 or 46.
+  SELECT CONCAT(last_name,' ', first_name) AS Full_Name, salary, manager_id FROM employee WHERE manager_id IN (21,4,46) ORDER BY manager_id;
 
 17. Write a query in SQL to display all the information for all employees who have the letters D, S, or N in their first
 name and also arrange the result in descending order by salary.
+  SELECT * FROM employee WHERE first_name SIMILAR TO '%(D|S|M)%'	ORDER BY salary DESC;
+
+/////
 
 18. Write a query in SQL to display the full name (first name and last name), hire date, commission percentage, email
 and telephone separated by '-', and salary for those employees who earn the salary above 11000 or the seventh digit in

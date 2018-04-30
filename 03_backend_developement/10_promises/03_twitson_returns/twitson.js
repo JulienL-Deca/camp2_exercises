@@ -10,6 +10,7 @@ const oauth = new OAuth.OAuth(
 );
 const url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=";
 
+console.log(process.env.TWITTER_ACCESS_SECRET);
 function twitson(twitterUsername) {
   oauth.get(
     url + twitterUsername,
@@ -25,7 +26,7 @@ function twitson(twitterUsername) {
       const password = process.env.WATSON_KEY;
       const url = process.env.WATSON_URL;
       const auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
-      const uri = encodeURI(url + "/v1/analyze?version=2017-02-27&features=sentiment,emotion&language=en&text=" + texts);
+      const uri = encodeURI(url + "/v1/analyze?version=2018-03-16&features=sentiment,emotion&language=en&text=" + texts);
 
       request({ url: uri, headers: { "Authorization": auth } }, function (error, response, body) {
         console.log(body);

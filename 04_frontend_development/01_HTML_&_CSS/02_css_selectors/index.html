@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8" />
+    <title>css selectors</title>
+    <style>
+      h1 {
+        color: blue;
+      }
+      #t01 th {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        text-align: left;
+      }
+      #t01 td {
+        text-align: center;
+      }
+      #t01 td:hover {
+        background-color: yellow;
+      }
+      #t01 tr:nth-child(even) {
+        background-color: blue;
+      }
+      .important{
+        font-weight: bold;
+      }
+      .emphasis{
+        font-style: italic;
+        text-align: center;
+      }
+      .important.emphasis{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Table & CSS test!</h1>
+    <table id="t01">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>Gender</th>
+      </tr>
+      <tr>
+        <td>Mickael</td>
+        <td>Jackson</td>
+        <td>50</td>
+        <td>M</td>
+      </tr>
+      <tr>
+        <td>Fredy</td>
+        <td>Mercury</td>
+        <td>45</td>
+        <td>M</td>
+      </tr>
+      <tr>
+        <td>Amy</td>
+        <td>Winehouse</td>
+        <td>27</td>
+        <td>F</td>
+      </tr>
+      <tr>
+        <td>Jimmy</td>
+        <td>Hendrix</td>
+        <td>27</td>
+        <td>M</td>
+      </tr>
+    </table>
+    <p>
+      <span class="important">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consequat dui eu turpis molestie pulvinar.</span>
+    </p>
+    <p>
+      <span class="emphasis">Donec vel lacinia neque. Integer consequat ornare enim vitae egestas. </span>
+    </p>
+    <p>
+      <span class="important emphasis">Morbi feugiat interdum tortor a gravida. </span>
+    </p>
+  </body>
+</html>

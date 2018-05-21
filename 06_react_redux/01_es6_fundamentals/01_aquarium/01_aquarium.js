@@ -1,6 +1,6 @@
 // Insert code here
 class Aquarium {
-  constructor(fishesTab, algaesTab){
+  constructor(fishesTab, algaesTab){ //ici on peut initialiser les tableaux si le dev ne le fait pas avec ce code ==> fishesTab = [], algaesTab = []
     this.fishes = fishesTab;
     this.algaes = algaesTab;
   }
@@ -88,13 +88,13 @@ myAquarium.addFish(newFish);
 // myAquarium.addAlgae(newAlgae);
 myAquarium.status("add#1");
 //tour 2
-newFish = new Fish("doe", "M", 1);
+newFish = new Fish("doe", "F", 1);
 newAlgae = new Algae(69);
 myAquarium.addFish(newFish);
 myAquarium.addAlgae(newAlgae);
 myAquarium.status("add#2");
 //tour 3
-newFish = new Fish("doe", "M", 1);
+newFish = new Fish("alice", "M", 1);
 newAlgae = new Algae("22 cm");
 myAquarium.addFish(newFish);
 myAquarium.addAlgae(newAlgae);

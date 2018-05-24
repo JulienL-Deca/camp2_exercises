@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 
+class RefreshButton extends Component{
+  render(){
+    return (
+      <button className="btn" onClick={this.props.Refresh} >Display another dog!</button>
+    )
+  }
+}
 class DogApp extends Component {
   constructor(props){
     super(props);
@@ -8,7 +15,7 @@ class DogApp extends Component {
       urlDog: "",
     };
   }
-  getDogUrl(){
+  getDogUrl= () => {
     fetch('https://random.dog/woof.json')
     .then(response => response.json())
     .then(myJson => this.setState({urlDog: myJson.url}));
@@ -21,7 +28,12 @@ class DogApp extends Component {
     return (
       <div className="App">
         {console.log(this.state.urlDog)}
-        <img src={this.state.urlDog} height="500" alt="a dog"></img>
+        {
+          this.state.urlDog.endsWith("mp4") ? <video height="400" autoplay='true' controls src={this.state.urlDog} />
+          : <img src={this.state.urlDog} height="400" alt="a dog"></img>
+        }
+        <h3>{this.state.urlDog}</h3>
+        <RefreshButton Refresh={this.getDogUrl} />
       </div>
     );
   }

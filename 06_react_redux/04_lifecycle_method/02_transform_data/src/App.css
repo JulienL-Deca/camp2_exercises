@@ -1,3 +1,13 @@
+th {
+  background-color: black;
+  color: white;
+}
+tr:nth-child(even) {
+    background-color: #eee;
+}
+tr:nth-child(odd) {
+   background-color: #fff;
+}
 .App {
   text-align: center;
 }

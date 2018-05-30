@@ -1,0 +1,13 @@
+.mybtn {
+  cursor: pointer;
+  padding: 10px;
+}
+.App {
+  text-align: center;
+  padding: 10px;
+}
+
+.App-intro {
+  font-size: large;
+  padding: 10px;
+}

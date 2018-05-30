@@ -29,11 +29,11 @@ class DogApp extends Component {
       <div className="App">
         {console.log(this.state.urlDog)}
         {
-          this.state.urlDog.endsWith("mp4") ? <video height="400" autoplay='true' controls src={this.state.urlDog} />
+          this.state.urlDog.endsWith("mp4") ? <video height="400" autoplay="true" control src={this.state.urlDog} />
           : <img src={this.state.urlDog} height="400" alt="a dog"></img>
         }
         <h3>{this.state.urlDog}</h3>
-        <RefreshButton Refresh={this.getDogUrl} />
+        <RefreshButton Refresh={this.getDogUrl} foo="bar" />
       </div>
     );
   }

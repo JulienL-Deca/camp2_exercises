@@ -6,11 +6,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isbn: "978059651774",
+      // isbn: "978059651774",
+      isbn: "0385191952",
     }
   }
   handleChange = (event) => {
     this.setState({isbn: event.target.value});
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.isbn !== this.props.isbn) {
+      this.setState({isbn: this.props.isbn})
+    }
   }
   handleSearch = () => {
 

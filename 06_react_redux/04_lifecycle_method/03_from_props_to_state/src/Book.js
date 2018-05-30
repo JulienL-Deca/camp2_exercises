@@ -8,7 +8,7 @@ class Book extends Component {
     }
   }
   componentDidMount() {
-    fetch(`https://openlibrary.org/api/books?bibkeys=ISBN:${this.props.isbn}8&format=json&jscmd=data`)
+    fetch(`https://openlibrary.org/api/books?bibkeys=ISBN:${this.props.isbn}&format=json&jscmd=data`)
       .then(response => response.json())
       .then(bookData => {
         this.setState({book: Object.values(bookData)[0]})
@@ -21,7 +21,8 @@ class Book extends Component {
           ? (
             <div>
               <div>{this.state.book.title}</div>
-              <img src={this.state.book.cover.medium} />
+              <img src={this.state.book.cover.medium} alt="book cover"/>
+              <div>{this.state.book.subtitle}</div>
             </div>
           )
           : null

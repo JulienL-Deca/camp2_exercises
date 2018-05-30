@@ -5,15 +5,22 @@ class ChatBot extends Component {
     super(props);
     this.sayHello = this.sayHello.bind(this);
     this.state = {
-      messages: []
+      messages: [],
+      nbMsg: 0,
     };
   }
   componentDidMount() {
-    setInterval(this.sayHello, 1000);
+    this.setIntervalId = setInterval(this.sayHello, 1000);
+  }
+  componentWillUnmount(){
+    clearInterval(this.setIntervalId);
   }
   sayHello() {
+    let nbMsgP1 = this.state.nbMsg + 1;
+    let newMsg = "Hey there! ("+nbMsgP1+")"
     this.setState({
-      messages: [...this.state.messages, "Hey there!"]
+      nbMsg: nbMsgP1,
+      messages: [...this.state.messages, newMsg ]
     });
   }
   render() {

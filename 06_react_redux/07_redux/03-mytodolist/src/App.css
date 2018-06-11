@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 60px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 10px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+table.todoItem {
+  text-align: center;
+}
+table.thead {
+  font-weight: bold;
+}
+.todoHead {
+  text-decoration: underline;
+}
+.todoList {
+  text-align: left;
+  margin: auto;
+  width: 50%;
+  border: 1px solid #000000;
+}
